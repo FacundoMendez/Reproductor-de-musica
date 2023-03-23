@@ -1,0 +1,20 @@
+.colorPalet{
+    width: 100%;
+    min-height: 100vh;
+    background-color: #070707;
+    position: fixed;
+    filter: drop-shadow(0 0 10px #070707);
+    top: 0;
+    left: 0;
+    z-index: 99999999 !important;
+}
+.colorPalet2{
+    width: 100%;
+    min-height: 100vh;
+    background: #08ffad;
+    filter: drop-shadow(0 0 4px rgb(0, 255, 170));
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99999998 !important;
+}

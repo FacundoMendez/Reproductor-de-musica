@@ -1,0 +1,77 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+html{
+  font-size: 62.5%;
+  background-color: rgb(0, 0, 0);
+  overflow: hidden;
+
+}
+
+
+::-webkit-scrollbar {
+  width: 13px;
+  background-position: top;
+  background-color: black;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #383838;
+  border-radius: 18px;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #6CAAE4;
+  border-radius: 18px;
+}
+
+::selection {
+  color: rgb(0, 0, 0);
+  background-color: #29d666;
+}
+
+::-moz-selection {
+  color: rgb(0, 0, 0);
+  background-color: #29d666;
+}
+
+.App{
+  background-color: #050505;
+  overflow: hidden;
+}
+
+
+
+@font-face {
+  font-family: 'ppF';
+  src: url('./components/assets/fonts/PPFormula.woff') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+.page-enter {
+  opacity: 0;
+}
+.page-enter-active {
+  opacity: 1;
+  transition: opacity 400ms;
+  transition-delay: 600ms;
+}
+.page-exit {
+  opacity: 1;
+}
+.page-exit-active {
+  opacity: 0;
+  transition: opacity 400ms;
+}

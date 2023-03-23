@@ -1,0 +1,875 @@
+
+/* player */
+
+#content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    overflow : hidden !important;
+}
+
+
+.canvas_banner{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+/* file box */
+
+
+
+.fileBox{
+  position: absolute;
+  left: 4rem;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+  flex-direction: row;
+}
+
+
+.file {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  transition: left .6s ease;
+  top: -1.5rem;
+}
+
+
+.file::before {
+  border: 2px solid  #29d666;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  content: 'Select file'; /* testo por defecto */
+  position: absolute;
+  padding: 1rem 5rem;
+  font-family: "ppF" ;
+  font-size: 2.7rem;
+  color: white;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: center;
+  z-index: 1000;
+  padding-top: 1.2rem;
+  transition: all .6s ease;
+
+}
+
+.file input[type="file"] {
+  opacity: 0;
+  width: 200px;
+  height: 32px;
+  display: inline-block;
+}
+
+
+#audio{
+  position: absolute;
+  bottom: .5rem;
+  width: 98%;
+}
+
+audio::-webkit-media-controls-panel{
+    background-color: #1b1b1b;
+}
+
+
+/* file elem */
+
+.file_elem{
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  transition: left .6s ease;
+  top: -.5rem;
+}
+
+.file_elem::before {
+  border: 2px solid  #29d666;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  content: '+'; 
+  position: absolute;
+  padding: 0 1rem;
+  font-family: "ppF" ;
+  font-size: 4rem;
+  font-weight: bold;
+  color: white;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: center;
+  z-index: 1000;
+  padding-top: 1rem;
+  height: 3rem;
+  width: 2rem;
+  background-color: #29d6660c;
+  transition: all .6s ease;
+}
+
+.file_elem input[type="file"] {
+  opacity: 0;
+  width: 6rem;
+  height: 32px;
+  display: inline-block;
+}
+
+
+/* box name song */
+
+
+.boxNameSong {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.nombre {
+  color: rgb(255, 255, 255);
+  font-size: 2rem;
+  width: 28rem;
+  padding: 0 1rem;
+  text-align: center;
+  font-family: "ppF";
+  letter-spacing: 1px;
+  transform: translateX(0);
+  animation: scroll 7s linear infinite;
+  transition: all .5s ease;
+}
+
+
+
+@keyframes scroll {
+  0% {
+    -webkit-transform: translateX(calc(28rem * 1));
+            transform: translateX(calc(28rem * 1));
+    transition: all .5s ease;
+
+  }
+  100% {
+    -webkit-transform: translateX(calc(-28rem * 1));
+            transform: translateX(calc(-28rem * 1));
+      transition: all .5s ease;
+
+  }
+}
+
+/* reproductor */
+
+
+.reproductor{
+  position: absolute;
+  display: flex;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 12rem;
+  background-color: rgba(2, 2, 2, 0.904);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  border-top-right-radius: 25px;
+  border-top-left-radius: 25px;
+  z-index: 1;
+
+}
+
+.boxControls{
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12rem;
+  height: 100%;
+  border-top: 1px solid #29d666;
+  border-radius: 25px;
+}
+
+
+.navMobileRep{
+  display: none;
+}
+
+.boxButtons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12rem;
+}
+
+.control{
+  position: relative;
+  width: 4rem;
+  cursor: pointer;
+  fill: white;
+  transition: all .1s ease;
+}
+
+.control:hover, .navMusic:hover {
+  fill: #29d666;
+  transition: all .1s ease;
+}
+
+
+.bi-play-fill{
+  width: 11rem;
+  text-align: center;
+  height: 6rem;
+}
+
+
+/* muscic bar */
+
+.boxMusic{
+  width: 30rem;
+  height: 7rem;
+  position: absolute;
+  right: 18rem;
+  
+}
+
+#iconMusic{
+  position: absolute ;
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+  top: 50%;
+  left: 18%;
+  transform: translate(-50% , -50%);
+}
+
+.volumenPlayer{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50% , -50%);
+}
+
+
+
+input[type=range] {
+  margin: auto;
+  outline: none;
+  padding: 0;
+  height: 10px;
+  background-size: 50% 100%;
+  background-repeat: no-repeat;
+  background-color:#29d666;
+  border-radius: 10px;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+
+input[type=range]::-webkit-slider-runnable-track {
+  box-shadow: none;
+  border: none;
+  background: transparent;
+  -webkit-appearance: none;
+}
+
+
+input[type=range]::-webkit-slider-thumb {
+  height: 18px;
+  width: 18px;
+  background: #fff;
+  filter: drop-shadow( 0 0 5px #29d666);
+  border-radius: 20px;
+  -webkit-appearance: none;
+}
+
+
+
+
+/* nav music */
+
+.navMusic{
+  position: absolute;
+  right: 5rem;
+  fill: white;
+  width: 4rem;
+  cursor: pointer;
+  bottom:1.5rem;
+  transform: translate(0 , -50%);
+  transition: all .5s ease;
+  z-index: 1;
+}
+
+.boxNavMusic{
+  width: 100%;
+  height: 100vh !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: #000000ef;
+  backdrop-filter: blur(1px);
+  transition: all .5s ease;
+  overflow-y: scroll;
+}
+
+.boxNavMusic ul{
+  margin-top: 10rem;
+  margin-bottom: 15rem;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 .4rem;
+  gap: 1rem;
+}
+
+
+.songsList{
+  color: white;
+  text-transform: uppercase;
+  font-size:3rem;
+  letter-spacing:3px;
+  font-family: "ppF" ;
+  outline: none;
+  font-weight: bold;
+  border-radius: 10px;
+  border: 1px solid #000000;
+  background-color: #d1fce017;
+  border-left: none;
+  border-right: none;
+  width: 100%;
+  padding: 2rem 10rem;
+  cursor: pointer;
+  transition: all .5s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.songsList:hover{
+  background-color: #24d662;
+  color: black;
+  transition: all .5s ease;
+}
+
+
+
+/* progress bar */
+
+.boxProgress{
+  position: absolute;
+  width: 25%;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progress-bar{
+  position: absolute;
+  width: 100%;
+  background-color: #2c2c2c;
+  height: .7rem;
+  bottom: 0.8rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.progress-bar-fill {
+  height: .7rem;
+  background-color: #29d666;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 10px;
+  width: 50rem;
+  filter: drop-shadow(0 0 5px #29d666);
+}
+
+.initSong{
+  color: white;
+  left: -4.5rem;
+  bottom: 0.4rem;
+  position: absolute;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  letter-spacing:2px;
+  font-family: "ppF" ;
+}
+
+.exitSong{
+  color: white;
+  right: -4.5rem;
+  bottom: 0.4rem;
+  position: absolute;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  letter-spacing:2px;
+  font-family: "ppF" ;
+}
+
+.durationSong{
+  color: white;
+  right: 10rem;
+  justify-content: center;
+  align-content: center;
+  letter-spacing:2px;
+  font-family: "ppF" ;
+}
+
+
+
+
+
+@media screen and (max-width: 1440px) {
+
+  /* volumen */
+  
+  .boxMusic {
+    width: 26rem;
+    right: 10rem;
+  }
+
+  input[type=range] {
+    height: 8px;
+  }
+
+
+  /* progress */
+
+  .progress-bar {
+    width: 90%;
+  }
+
+  .initSong {
+    left: -3rem;
+  }
+
+  .exitSong {
+    right: -3rem;
+  }
+
+
+  /* file */
+
+  .fileBox {
+    left: 3rem;
+  }
+
+  .nombre {
+    font-size: 1.8rem;
+    width: 25rem;
+  }
+
+  
+  @keyframes scroll {
+    0% {
+      -webkit-transform: translateX(calc(25rem * 1));
+              transform: translateX(calc(25rem * 1));
+      transition: all .5s ease;
+
+    }
+    100% {
+      -webkit-transform: translateX(calc(-25rem * 1));
+              transform: translateX(calc(-25rem * 1));
+        transition: all .5s ease;
+
+    }
+  }
+
+
+  .file::before {
+    font-size: 2.2rem;
+  }
+
+  /* buttons */
+
+  .boxButtons {
+    gap: 10rem;
+    top: -1rem;
+  }
+
+
+  .control{
+    width: 3.5rem;
+  }
+
+  .bi-play-fill{
+    width: 10.5rem;
+  }
+
+}
+
+
+@media screen and (max-width: 1070px) {
+    /* volumen */
+  
+    .boxMusic {
+      width: 26rem;
+      right: 5rem;
+    }
+  
+    input[type=range] {
+      height: 8px;
+      width: 11rem;
+    }
+
+
+    /* navMusic */
+
+    .navMusic {
+      right: 3rem;
+    }
+
+
+    /* name song */
+    
+    .nombre {
+      font-size: 1.7rem;
+      width: 20rem;
+    }
+
+    
+    @keyframes scroll {
+      0% {
+        -webkit-transform: translateX(calc(20rem * 1));
+                transform: translateX(calc(20rem * 1));
+        transition: all .5s ease;
+
+      }
+      100% {
+        -webkit-transform: translateX(calc(-20rem * 1));
+                transform: translateX(calc(-20rem * 1));
+          transition: all .5s ease;
+
+      }
+    }
+
+  
+}
+
+
+@media screen and (max-width:950px) {
+
+  .reproductor{
+    height: 25rem;
+    width: 100%;
+
+  }
+
+  /* file */
+
+  .fileBox {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+  }
+
+  .file{
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+  }
+
+  .file::before {
+    position: absolute;
+    bottom: 2%;
+    left: 50%;
+    transform: translate(-50% ,0);
+    height: 2rem;
+    font-size: 1.6rem;
+  }
+  
+
+  .file_elem{
+    bottom: 3%;
+    position: absolute;
+    left: 10%;
+    transform: translate(-50% , 0);
+  }
+
+  .file_elem::before {
+    position: absolute;
+    bottom: 2rem;
+    font-size: 4rem;
+    height: 3rem;
+    width: 2rem;
+  }
+
+  .boxNameSong {
+    position: absolute;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25rem;
+    left: 50%;
+    transform:translate(-50% , 0);
+    height: 100%;
+    flex-wrap: nowrap;
+  }
+
+  .nombre {
+    position: absolute;
+    font-size: 2rem;
+    width: 20rem;
+    top: 8%;
+  }
+
+
+  /* controls */
+
+  .boxButtons {
+    position: absolute;
+    width: 100%;
+    top: 28%;
+  }
+  
+
+  /* progress */
+
+  
+  .progress-bar {
+    width: 25rem;
+    bottom: 8.5rem;
+  }
+
+  .initSong {
+    bottom: 8rem;
+    left: -8rem;
+  }
+
+  .exitSong {
+    bottom: 8rem;
+    right: -8rem;
+  }
+
+
+
+  /* volumen */
+  .boxMusic {
+    display: none;
+  }
+
+
+  /* navMusic */
+
+  
+  .navMusic {
+    position: absolute;
+    right: 5%;
+    bottom: 0rem;
+    z-index: 99999;
+  }
+  
+
+  /* nav */
+
+  .navMobileRep{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 6rem;
+    border: 2px solid #8b8b8b09;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+  }
+  
+  .file::before {
+    width: 28rem;
+    font-size: 1.8rem;
+  }
+
+}
+
+
+@media screen and (max-width:660px) {
+  /* progress */
+
+  
+  .progress-bar {
+    width: 25rem;
+    bottom: 8.5rem;
+  }
+
+  .initSong {
+    bottom: 8rem;
+    left: -8rem;
+  }
+
+  .exitSong {
+    bottom: 8rem;
+    right: -8rem;
+  }
+
+  
+  .file::before {
+    width: 25rem;
+    font-size: 1.8rem;
+  }
+
+  
+
+  .songsList{
+    font-size:2rem;
+    padding: 2rem 5rem;
+  }
+}
+
+
+@media screen and (max-width:560px) {
+  /* progress */
+
+  
+  .progress-bar {
+    width: 25rem;
+    bottom: 8.5rem;
+  }
+
+  .initSong {
+    bottom: 8rem;
+    left: -10.5rem;
+  }
+
+  .exitSong {
+    bottom: 8rem;
+    right: -10.5rem;
+  }
+
+  .navMusic {
+    bottom: -1rem;
+  }
+  .file_elem::before {
+    bottom: 1rem;
+  }
+}
+
+
+
+
+@media screen and (max-width:470px) {
+
+  .songsList{
+    font-size:2rem;
+    padding: 2rem 2rem;
+  }
+  /* progress */
+
+  
+  .progress-bar {
+    width: 25rem;
+    bottom: 8.5rem;
+  }
+
+  .initSong {
+    bottom: 8rem;
+    left: -11.5rem;
+  }
+
+  .exitSong {
+    bottom: 8rem;
+    right: -11.5rem;
+  }
+  
+  .file_elem{
+    left: 12%;
+  }
+
+  .file::before {
+    width: 25rem;
+    font-size: 1.8rem;
+  }
+  
+}
+
+
+@media screen and (max-width:390px) {
+  /* progress */
+
+  
+  .progress-bar {
+    width: 22rem;
+    bottom: 8.5rem;
+  }
+
+  .initSong {
+    bottom: 8rem;
+    left: -11.5rem;
+  }
+
+  .exitSong {
+    bottom: 8rem;
+    right: -11.5rem;
+  }
+  .file_elem{
+    left: 13%;
+  }
+
+  .songsList{
+    font-size:1.7rem;
+    padding: 2rem 2rem;
+  }
+}
+
+
+
+@media screen and (max-width:340px) {
+  /* progress */
+  .file::before {
+    position: absolute;
+    bottom: 2%;
+    left: 50%;
+    transform: translate(-50% ,0);
+    height: 2rem;
+    font-size: 1.6rem;
+    width: 20rem;
+  }
+  
+  .progress-bar {
+    width: 20rem;
+    bottom: 8.5rem;
+  }
+
+  .initSong {
+    bottom: 8rem;
+    left: -10.5rem;
+  }
+
+  .exitSong {
+    bottom: 8rem;
+    right: -10.5rem;
+  }
+
+  .boxButtons {
+    gap: 8rem;
+  }
+}
