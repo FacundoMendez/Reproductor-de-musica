@@ -14,6 +14,7 @@ const Player = () => {
   
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [songs, setSongs] = useState([]);
+  
      /* control de start/pause */
   const [playAudio , setPlayAudio] = useState(false)
 
@@ -55,6 +56,19 @@ const Player = () => {
     })
   },[])
 
+
+  const styleMobile = () => {
+    
+    if (window.innerWidth < 950){
+      if(songs.length > 0){
+        return "25rem"
+      }else{
+        return "20rem"
+      }
+    }
+  }
+
+
   return (
     <>
     <TransitionPages/>
@@ -63,11 +77,11 @@ const Player = () => {
       <canvas className='canvas_banner' id="canvas_banner"></canvas>
       <audio  preload="auto" id="audio" />
 
-      <div className="reproductor">
+      <div className="reproductor" style={{height: `${styleMobile()}`}}>
 
         <div className="fileBox">
-            <label htmlFor="thefile" className={songs.length > 1 ? "file_elem" : "file"} id="file">
-                {songs.length > 1 ? 
+            <label htmlFor="thefile" className={songs.length > 0 ? "file_elem" : "file"} id="file">
+                {songs.length > 0 ? 
                   "+" 
                   : 
                   "Choose an audio file"
@@ -83,7 +97,7 @@ const Player = () => {
 
             </label>
 
-            {songs.length > 1 && 
+            {songs.length > 0 && 
             <div className="boxNameSong">
               <p className='nombre'>{songs[currentSongIndex].name.substring(0, 30)} </p>
             </div>
@@ -93,7 +107,7 @@ const Player = () => {
         
 
 
-        <div className="boxControls">
+        <div className="boxControls" >
           <div className="boxButtons">
             <Prev songs={songs} currentSongIndex={currentSongIndex}  setCurrentSongIndex = {setCurrentSongIndex}/>
             <StartPause songs={songs} currentSongIndex={currentSongIndex} setCurrentSongIndex={setCurrentSongIndex} playAudio={playAudio} setPlayAudio = {setPlayAudio}/>
@@ -101,13 +115,14 @@ const Player = () => {
           </div>
 
           <Volumen />
-          <ProgressBar />
+
+          {songs.length > 0 &&  <ProgressBar /> } 
 
           <div className="navMobileRep"></div>
         </div>
    
       </div>
-      {songs.length > 1 && <NavMusic songs = {songs} setCurrentSongIndex = {setCurrentSongIndex} setPlayAudio = {setPlayAudio}/> }
+      {songs.length > 0 && <NavMusic songs = {songs} setCurrentSongIndex = {setCurrentSongIndex} setPlayAudio = {setPlayAudio}/> }
 
     </div>
     </>
