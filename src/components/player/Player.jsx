@@ -58,16 +58,24 @@ const Player = () => {
 
 
   const styleMobile = () => {
-    
     if (window.innerWidth < 950){
       if(songs.length > 0){
         return "25rem"
       }else{
-        return "20rem"
+        return "16rem"
       }
     }
   }
 
+  const styleMobileButtons = () => {
+    if (window.innerWidth < 950){
+      if(songs.length > 0){
+        return "28%"
+      }else{
+        return "16%"
+      }
+    }
+  }
 
   return (
     <>
@@ -108,7 +116,7 @@ const Player = () => {
 
 
         <div className="boxControls" >
-          <div className="boxButtons">
+          <div className="boxButtons" style={{top: `${styleMobileButtons()}`}}>
             <Prev songs={songs} currentSongIndex={currentSongIndex}  setCurrentSongIndex = {setCurrentSongIndex}/>
             <StartPause songs={songs} currentSongIndex={currentSongIndex} setCurrentSongIndex={setCurrentSongIndex} playAudio={playAudio} setPlayAudio = {setPlayAudio}/>
             <Next songs={songs} currentSongIndex={currentSongIndex}  setCurrentSongIndex = {setCurrentSongIndex} />
