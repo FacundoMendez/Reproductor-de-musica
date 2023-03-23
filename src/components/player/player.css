@@ -137,7 +137,6 @@ audio::-webkit-media-controls-panel{
   overflow: hidden;
   display: flex;
   flex-wrap: nowrap;
-  display: none;
 }
 
 .nombre {
@@ -576,6 +575,7 @@ input[type=range]::-webkit-slider-thumb {
 @media screen and (max-width:950px) {
 
   .reproductor{
+    height: 25rem;
     width: 100%;
 
   }
